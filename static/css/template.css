@@ -23,3 +23,8 @@
 
   --border: 3px solid #fff;
 }
+
+.center {
+  text-align: center;
+  border: 3px solid green;
+}

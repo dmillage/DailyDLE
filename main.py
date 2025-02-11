@@ -14,14 +14,6 @@ def about():
 def login():
     return render_template("login.html")
 
-@app.get("/toggle-theme")
-def toggle_theme():
-    current_theme = session.get("theme")
-    if current_theme == "dark":
-        session["theme"] = "light"
-    else:
-        session["theme"] = "dark"
-    return redirect(request.args.get("current_page"))
 
 if __name__ == "__main__":
     app.run(debug=True)

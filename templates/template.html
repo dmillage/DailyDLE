@@ -1,0 +1,38 @@
+{% from "macros/svgs.html" import moon, sun %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="{{ 'dark-mode' if session.get('theme') == 'dark' }}">
+ <head>
+   <meta charset="utf-8">
+   <title>Daily DLE Templates</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="template.css">
+ </head>
+ <body>
+    <header>
+      <div>
+        <h1 class="navbar-brand root">DaWorkoutApp</h1>
+        <strong><nav class="navbar navbar-default">
+            <ul class = "nav navbar-nav">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('toggle_theme', current_page=request.path) }}">
+                  <span>
+                      {% if theme == "dark" %}
+                          {{ sun("nav__icon") }}
+                      {% else %}
+                          {{ moon("nav__icon") }}
+                      {% endif %}
+                  </span>
+              </a></li>
+            </ul>
+        </nav></strong>
+      </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+ </body>
+</html>
